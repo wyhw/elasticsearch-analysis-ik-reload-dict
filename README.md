@@ -4,7 +4,15 @@ elasticsearch-analysis-ik-reload-dict
 A elasticsearch plugin, Can reload dictionary for elasticsearch-analysis-ik
 
 ##Instalation
-Run @bin/plugin -install wyhw/elasticsearch-analysis-ik-reload-dict
+Run 
+
+	cd elasticsearch
+
+	wget http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict/blob/master/elasticsearch-analysis-ik-reload-dict-0.0.1.zip?raw=true --no-check-certificate
+
+	bin/plugin --url file://`pwd`/elasticsearch-analysis-ik-reload-dict-0.0.1.zip --install elasticsearch-analysis-ik-reload-dict
+
+then Restart elasticsearch.
 
 ##Usage
 
