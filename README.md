@@ -3,6 +3,10 @@ elasticsearch-analysis-ik-reload-dict
 
 A elasticsearch plugin, Can reload dictionary for elasticsearch-analysis-ik
 
+##Requirement
+
+	wget -O elasticsearch-analysis-ik-1.2.6.jar http://github.com/wyhw/elasticsearch-analysis-ik/blob/master/elasticsearch-analysis-ik-1.2.6.jar?raw=true --no-check-certificate
+
 ##Instalation
 Run 
 
