@@ -18,11 +18,11 @@ then Restart elasticsearch.
 
 ####View: 
 
-	http://localhost:9200/_plugin/reloadikdict
+	http://localhost:9200/_reloadikdict
 
 ####Reload IK dictionary
 
-	http://localhost:9200/_plugin/reloadikdict?reload=1
+	http://localhost:9200/_reloadikdict?reload=1
 
 
 ##Version mapping
