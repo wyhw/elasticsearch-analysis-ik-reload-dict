@@ -44,14 +44,15 @@ public class ReloadDictAction extends BaseRestHandler {
     public ReloadDictAction(Settings settings, Client client,
             RestController controller, IndicesService indicesService) {
         super(settings, client);
-        controller.registerHandler(GET, "/_plugin/reloadikdict", this);
+        controller.registerHandler(GET, "/_reloadikdict", this);
+        LOG.info("register /_reloadikdict/");
     }
 
 
     @Override
     public void handleRequest(final RestRequest request,
             final RestChannel channel) {
-        logger.debug("Request");
+        logger.info("Request /_reloadikdict");
 
 
         boolean reload = request.paramAsBoolean("reload",Boolean.FALSE);
@@ -59,11 +60,13 @@ public class ReloadDictAction extends BaseRestHandler {
         try {
             // Wait for trigger
             if (reload) {
+            	logger.info("Request /_reloadikdict reload");
             	Dictionary.getSingleton().reloadDictionary();
             }
             
             XContentBuilder builder = createXContentBuilderForReload(request, reload);
             channel.sendResponse(new XContentRestResponse(request, OK, builder));
+            logger.info("Request /_reloadikdict OK.");
         } catch (Exception e) {
             LOG.error("Error while handling change REST action", e);
             try {
