@@ -37,6 +37,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<elasticsearch.version>1.0.0</elasticsearch.version>
 	</properties>
 
 	<licenses>
@@ -48,8 +49,8 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@github.com/wyhw/elasticsearch-analysis-ik-reload-dict.git</connection>
-		<developerConnection>scm:git:git@github.com/wyhw/elasticsearch-analysis-ik-reload-dict.git</developerConnection>
+		<connection>scm:git:git@github.com:wyhw/elasticsearch-analysis-ik-reload-dict.git</connection>
+		<developerConnection>scm:git:git@github.com:wyhw/elasticsearch-analysis-ik-reload-dict.git</developerConnection>
 		<url>http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict</url>
 	</scm>
 
@@ -134,6 +135,7 @@
 				<version>2.3</version>
 				<configuration>
 				    <appendAssemblyId>false</appendAssemblyId>
+				    <outputDirectory>${project.build.directory}/releases/</outputDirectory>
 					<descriptors>
 						<descriptor>src/main/assemblies/plugin.xml</descriptor>
 					</descriptors>

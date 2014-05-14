@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <assembly>
-    <id>release</id>
+    <id>plugin</id>
     <formats>
         <format>zip</format>
     </formats>
@@ -10,6 +10,17 @@
             <outputDirectory>/</outputDirectory>
             <useProjectArtifact>true</useProjectArtifact>
             <useTransitiveFiltering>true</useTransitiveFiltering>
+            <excludes>
+                <exclude>org.elasticsearch:elasticsearch</exclude>
+            </excludes>
+        </dependencySet>
+        <dependencySet>
+            <outputDirectory>/</outputDirectory>
+            <useProjectArtifact>true</useProjectArtifact>
+            <useTransitiveFiltering>true</useTransitiveFiltering>
+            <excludes>
+                <exclude>org.elasticsearch:elasticsearch-analysis-ik-wyhw</exclude>
+            </excludes>
         </dependencySet>
     </dependencySets>
 </assembly>
