@@ -83,7 +83,7 @@ public class ReloadDictAction extends BaseRestHandler {
             builder = RestXContentBuilder.restContentBuilder(request);
             builder.startObject();
             builder.field("ok", "true");
-            builder.field("reload", "true");
+            builder.field("reload", reload ? "true" : "false");
             builder.endObject();
         } catch (Exception e) {
             LOG.error("Error while setting XContentBuilder from response", e);
