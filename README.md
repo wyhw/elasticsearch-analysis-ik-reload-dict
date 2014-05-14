@@ -4,9 +4,7 @@ elasticsearch-analysis-ik-reload-dict
 A elasticsearch plugin, Can reload dictionary for elasticsearch-analysis-ik
 
 ##Instalation
-Run 
-
-	bin/plugin -install wyhw/elasticsearch-analysis-ik-reload-dict
+Run @bin/plugin -install wyhw/elasticsearch-analysis-ik-reload-dict
 
 ##Usage
 
