@@ -18,9 +18,9 @@ Run
 
 	cd elasticsearch
 
-	wget http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict/blob/master/elasticsearch-analysis-ik-reload-dict-0.0.1.zip?raw=true --no-check-certificate
+	wget http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict/blob/master/elasticsearch-analysis-ik-reload-dict-0.0.2.zip?raw=true --no-check-certificate
 
-	bin/plugin --url file://`pwd`/elasticsearch-analysis-ik-reload-dict-0.0.1.zip --install elasticsearch-analysis-ik-reload-dict
+	bin/plugin --url file://`pwd`/elasticsearch-analysis-ik-reload-dict-0.0.2.zip --install elasticsearch-analysis-ik-reload-dict
 
 then Restart elasticsearch.
 
@@ -37,6 +37,8 @@ then Restart elasticsearch.
 
 ##Version mapping
 
-	master   =>    Elasticsearch 1.0.x
-
+	master   =>    Elasticsearch 1.2.x
+	
+	0.0.2    =>    Elasticsearch 1.2.x
+	
 	0.0.1    =>    Elasticsearch 1.0.x

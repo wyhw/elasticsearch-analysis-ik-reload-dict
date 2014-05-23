@@ -18,8 +18,7 @@ package org.elasticsearch.plugins.analysisik.rest.action;
 
 import static org.elasticsearch.rest.RestRequest.Method.GET;
 import static org.elasticsearch.rest.RestStatus.OK;
-
-import java.io.IOException;
+import static org.elasticsearch.rest.RestStatus.INTERNAL_SERVER_ERROR;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.inject.Inject;
@@ -27,14 +26,14 @@ import org.elasticsearch.common.logging.ESLogger;
 import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.xcontent.XContentBuilder;
+import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.indices.IndicesService;
 import org.elasticsearch.rest.BaseRestHandler;
+import org.elasticsearch.rest.BytesRestResponse;
 import org.elasticsearch.rest.RestChannel;
 import org.elasticsearch.rest.RestController;
 import org.elasticsearch.rest.RestRequest;
-import org.elasticsearch.rest.XContentRestResponse;
-import org.elasticsearch.rest.XContentThrowableRestResponse;
-import org.elasticsearch.rest.action.support.RestXContentBuilder;
+
 import org.wltea.analyzer.dic.Dictionary;
 
 public class ReloadDictAction extends BaseRestHandler {
@@ -47,8 +46,7 @@ public class ReloadDictAction extends BaseRestHandler {
         controller.registerHandler(GET, "/_reloadikdict", this);
         LOG.info("register /_reloadikdict/");
     }
-
-
+    
     @Override
     public void handleRequest(final RestRequest request,
             final RestChannel channel) {
@@ -65,22 +63,18 @@ public class ReloadDictAction extends BaseRestHandler {
             }
             
             XContentBuilder builder = createXContentBuilderForReload(request, reload);
-            channel.sendResponse(new XContentRestResponse(request, OK, builder));
+            channel.sendResponse(new BytesRestResponse(OK, builder));
             logger.info("Request /_reloadikdict OK.");
         } catch (Exception e) {
             LOG.error("Error while handling change REST action", e);
-            try {
-                channel.sendResponse(new XContentThrowableRestResponse(request, e));
-            } catch (IOException e1) {
-                LOG.error("Error while sending error response", e1);
-            }
+            channel.sendResponse(new BytesRestResponse(INTERNAL_SERVER_ERROR));
         }
     }
 
     private XContentBuilder createXContentBuilderForReload(final RestRequest request, boolean reload) {
-        XContentBuilder builder = null;
+    	XContentBuilder builder = null;
         try {
-            builder = RestXContentBuilder.restContentBuilder(request);
+            builder = XContentFactory.jsonBuilder();
             builder.startObject();
             builder.field("ok", "true");
             builder.field("reload", reload ? "true" : "false");

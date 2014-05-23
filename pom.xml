@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.elasticsearch</groupId>
 	<artifactId>elasticsearch-analysis-ik-reload-dict</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<packaging>jar</packaging>
 	<description>ElasticSearch - Reload IK dictionary</description>
 	<inceptionYear>2014</inceptionYear>
@@ -37,7 +37,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<elasticsearch.version>1.0.0</elasticsearch.version>
+		<elasticsearch.version>1.2.0</elasticsearch.version>
 	</properties>
 
 	<licenses>
@@ -63,7 +63,7 @@
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
-			<version>1.0.0</version>
+			<version>1.2.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
