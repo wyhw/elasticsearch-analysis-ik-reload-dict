@@ -11,16 +11,16 @@ elasticsearch-analysis-ik source for this fix:
 
 get jar package:
 
-	wget -O elasticsearch-analysis-ik-1.2.6.jar http://github.com/wyhw/elasticsearch-analysis-ik/blob/master/elasticsearch-analysis-ik-1.2.6.jar?raw=true --no-check-certificate
+	wget https://raw.githubusercontent.com/wyhw/elasticsearch-analysis-ik/master/elasticsearch-analysis-ik-1.3.2.jar --no-check-certificate
 
 ##Instalation
 Run 
 
 	cd elasticsearch
 
-	wget http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict/blob/master/elasticsearch-analysis-ik-reload-dict-0.0.2.zip?raw=true --no-check-certificate
+	wget http://github.com/wyhw/elasticsearch-analysis-ik-reload-dict/blob/master/elasticsearch-analysis-ik-reload-dict-0.0.3.zip?raw=true --no-check-certificate
 
-	bin/plugin --url file://`pwd`/elasticsearch-analysis-ik-reload-dict-0.0.2.zip --install elasticsearch-analysis-ik-reload-dict
+	bin/plugin --url file://`pwd`/elasticsearch-analysis-ik-reload-dict-0.0.3.zip --install elasticsearch-analysis-ik-reload-dict
 
 then Restart elasticsearch.
 
@@ -38,6 +38,8 @@ then Restart elasticsearch.
 ##Version mapping
 
 	master   =>    Elasticsearch 1.2.x
+	
+	0.0.3	 =>    Elasticsearch 1.3.x
 	
 	0.0.2    =>    Elasticsearch 1.2.x
 	

@@ -19,7 +19,6 @@ package org.elasticsearch.plugins.analysisik.rest.action;
 import static org.elasticsearch.rest.RestRequest.Method.GET;
 import static org.elasticsearch.rest.RestStatus.OK;
 import static org.elasticsearch.rest.RestStatus.INTERNAL_SERVER_ERROR;
-
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.logging.ESLogger;
@@ -27,29 +26,24 @@ import org.elasticsearch.common.logging.Loggers;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
-import org.elasticsearch.indices.IndicesService;
-import org.elasticsearch.rest.BaseRestHandler;
-import org.elasticsearch.rest.BytesRestResponse;
-import org.elasticsearch.rest.RestChannel;
-import org.elasticsearch.rest.RestController;
-import org.elasticsearch.rest.RestRequest;
+import org.elasticsearch.rest.*;
 
 import org.wltea.analyzer.dic.Dictionary;
 
 public class ReloadDictAction extends BaseRestHandler {
-	private static final ESLogger LOG = Loggers.getLogger(ReloadDictAction.class);
 
-    @Inject
-    public ReloadDictAction(Settings settings, Client client,
-            RestController controller, IndicesService indicesService) {
-        super(settings, client);
-        controller.registerHandler(GET, "/_reloadikdict", this);
-        LOG.info("register /_reloadikdict/");
+	private static final ESLogger LOG = Loggers.getLogger(ReloadDictAction.class);
+	
+	@Inject
+	public ReloadDictAction(Settings settings, Client client, RestController controller) {
+    	super(settings, client);
+    	controller.registerHandler(GET, "/_reloadikdict", this);
+    	LOG.info("register /_reloadikdict/");
     }
     
     @Override
     public void handleRequest(final RestRequest request,
-            final RestChannel channel) {
+            final RestChannel channel, final Client client) {
         logger.info("Request /_reloadikdict");
 
 
